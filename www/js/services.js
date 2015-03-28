@@ -23,7 +23,7 @@ angular.module('starter.services', [])
   }
   function destinations(lat,lng,max,interest){
     var url = "https://bycycleapi.herokuapp.com/destinations?location="+ lat+"," + lng + "&maxDuration=";
-    url += max +"&interest=" + interest;
+    url += max*60 +"&interest=" + interest;
     var request = $http.get(url);
     return( request.then( handleSuccess, handleError ) );
 
