@@ -1,0 +1,19 @@
+<ion-view view-title="Home">
+  <ion-content style="top:0;">
+    <div class="homeBGHeader">    </div><br/>
+    <div class="locationDiv">
+      <span class="locationHeader">You are in <span class="locationName">London</span>, right?</span><button class="button button-small button-changelocation">
+  Change Location
+</button>
+    </div><br/>
+    <div class="activityTime">
+      How much time do you have? <select id="chooseTimer" ng-model="selectedDuration" ng-options="duration.displayName for duration in durations">
+      </select>
+    </div>
+    <ion-list>
+      <ion-item ng-repeat="playlist in playlists" href="#/app/playlists/{{playlist.id}}">
+        {{playlist.title}}
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>
