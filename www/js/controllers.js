@@ -130,6 +130,9 @@ angular.module('starter.controllers', ['starter.services'])
   $scope.duration = 120;
   $scope.durationMins = 0;
   $scope.durationHours = 2;
+  $scope.setCategory = function(category){
+    $scope.category = category;
+  }
   $scope.goToSearch = function(){
    $location.path('/app/changeHomeLocation');
   };

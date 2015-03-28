@@ -17,13 +17,13 @@
       <li class="item item-divider">
         What are you interested in?
       </li>
-      <label class="item item-radio" ng-repeat="category in categories">
-        <input type="radio" name="categories">
+      <label class="item item-radio" ng-repeat="category in categories" ng-click="setCategory(category)">
+        <input type="radio" name="categories"/>
         <div class="item-content">{{category}}</div>
         <i class="radio-icon ion-checkmark"></i>
       </label>
       <li class="item">
-        <button class="button button-block button-positive" ng-click="goToDestination()">
+        <button class="button button-block button-positive" ng-click="goToDestination()" ng-if="category">
           Show me the destinations
         </button>
       </li>
