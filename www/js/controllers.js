@@ -126,6 +126,7 @@ angular.module('starter.controllers', ['starter.services'])
   $scope.durationMins = 0;
   $scope.durationHours = 2;
   $scope.slideDuration = function(duration) {
+    $scope.duration = duration;
     $scope.durationMins = duration % 60;
     $scope.durationHours = Math.floor(duration / 60);
   }
