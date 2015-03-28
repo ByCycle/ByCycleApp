@@ -107,7 +107,7 @@ angular.module('starter.controllers', ['starter.services'])
       // error
     });*/
 })
-.controller('HomeCtrl',function($scope, $location, $state) {
+.controller('HomeCtrl',function($scope, $state) {
   $scope.$parent.navBarClass= "bar-clear";
   $scope.categories = [
     "Cities and Towns",
@@ -134,7 +134,7 @@ angular.module('starter.controllers', ['starter.services'])
     $scope.category = category;
   }
   $scope.goToSearch = function(){
-   $location.path('/app/changeHomeLocation');
+   $state.go('app.changeLocation');
   };
   $scope.goToDestination = function() {
     $state.go('app.browse', {lat: $scope.$parent.location.lat,
