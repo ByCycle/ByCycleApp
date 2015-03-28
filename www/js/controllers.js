@@ -1,10 +1,27 @@
 angular.module('starter.controllers', ['starter.services'])
 
-.controller('AppCtrl', function($scope, $ionicModal, $timeout) {
+.controller('AppCtrl', function($scope, $ionicModal, $timeout, $http, $cordovaGeolocation) {
   // Form data for the login modal
   $scope.loginData = {};
   $scope.location = {};
-  $scope.location.title = 'London';
+  $scope.location.title = 'unknown';
+
+  $cordovaGeolocation
+    .getCurrentPosition({timeout: 10000, enableHighAccuracy: false})
+    .then(function (position) {
+      $scope.location.lat  = position.coords.latitude
+      $scope.location.long = position.coords.longitude
+      $http.get('http://nominatim.openstreetmap.org/reverse',
+                {params: {format: 'json',
+                          lat: position.coords.latitude,
+                          lon: position.coords.longitude}})
+        .success(function(data, status) {
+          $scope.location.title = [data.address.road, data.address.city].join(', ');
+        });
+      console.log('location detected:', position);
+    }, function(err) {
+      // FIXME: handle case when user denies geolocation or can't be located
+    });
 
   // Create the login modal that we will use later
   $ionicModal.fromTemplateUrl('templates/login.html', {
