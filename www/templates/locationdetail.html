@@ -1,12 +1,11 @@
-<ion-pane>
-  <ion-nav-bar>
-  <ion-nav-back-button>
-  </ion-nav-back-button>
-</ion-nav-bar>
-
+<ion-view>
+  <ion-nav-title>
+    </ion-nav-title>
   <ion-header-bar class="bar-assertive">
                 <h1 class="title">{{title}}</h1>
             </ion-header-bar>
   <ion-content>
+    <img class="detailImage" src="http://media.api.visitbritain.com/{{detail.images[0]}}_cell_2x1_640.jpg"/>
+    {{detail.description}}
   </ion-content>
-</ion-pane>
+</ion-view>

@@ -145,6 +145,7 @@ angular.module('starter.controllers', ['starter.services'])
 .controller('LocationDetailCtrl',function($scope,$ionicHistory,$stateParams,LocationService){
   $scope.title = $stateParams.title;
   LocationService.detail($stateParams.id).then(function(locationDetail){
+    $scope.detail = locationDetail;
     console.log(locationDetail);
   },function(error){
     console.log(error);
