@@ -9,7 +9,8 @@ angular.module('starter.services', [])
   return({
     suggest : locationSuggestion,
     detail: locationDetail,
-    destinations:destinations
+    destinations:destinations,
+    bikeDirections: bikeDirections
   });
   function locationSuggestion(str){
     var url = 'http://api.visitbritain.com/search?title='+str+'&target=gb';
@@ -27,6 +28,11 @@ angular.module('starter.services', [])
     var request = $http.get(url);
     return( request.then( handleSuccess, handleError ) );
 
+  }
+  function bikeDirections(lat,lng,id){
+    var url = "http://bycycleapi.herokuapp.com/route/"+ lat+"," + lng + "/"+id;
+    var request = $http.get(url);
+    return( request.then( handleSuccess, handleError ) );
   }
   function handleError( response ) {
                     if (! angular.isObject( response.data ) ||
