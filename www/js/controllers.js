@@ -130,11 +130,6 @@ angular.module('starter.controllers', ['starter.services'])
 })
 .controller('HomeCtrl',function($scope,$location){
   $scope.$parent.navBarClass= "bar-clear";
-  $scope.durations = [
-  {value: '15min', displayName: '15min'},
-  {value: '30min', displayName: '30min'},
-  {value: '45min', displayName: '45min'}]
-  $scope.selectedDuration = $scope.durations[1];
   $scope.goToSearch = function(){
    $location.path('/app/changeHomeLocation');
   };
