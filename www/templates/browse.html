@@ -8,7 +8,7 @@
                   href="#/app/locationdetail/{{item.id}}/{{item.title}}">
           <div class="ionitemtitle">{{ item.title }}</div>
           <div class="ionitemduration">
-            {{item.duration}}
+            {{item.duration | formatSecs }}
           </div>
 
           </ion-item>
