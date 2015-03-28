@@ -12,8 +12,8 @@ angular.module('starter.services', [])
     destinations:destinations
   });
   function locationSuggestion(str){
-    var url = 'http://api.visitbritain.com/search?title='+str+'&target=gb';
-    var request = $http.get(url);
+    var url = 'http://api.visitbritain.com/search';
+    var request = $http.get(url, {params: {title: str, target: 'gb'}});
       return( request.then( handleSuccess, handleError ) );
   }
   function locationDetail(id){
@@ -22,9 +22,10 @@ angular.module('starter.services', [])
       return( request.then( handleSuccess, handleError ) );
   }
   function destinations(lat,lng,max,interest){
-    var url = "http://bycycleapi.herokuapp.com/destinations?location="+ lat+"," + lng + "&maxDuration=";
-    url += max*60 +"&interest=" + interest;
-    var request = $http.get(url);
+    var url = "http://bycycleapi.herokuapp.com/destinations";
+    var request = $http.get(url, {params: {location: lat + "," + lng,
+                                           maxDuration: max * 60,
+                                           interest: interest}});
     return( request.then( handleSuccess, handleError ) );
 
   }
