@@ -238,7 +238,10 @@ angular.module('starter.controllers', ['starter.services'])
         var content = element.find('a');
         content.css({
             'background': 'url(' + url +')',
-            'background-size': '100% 100%'
+            'background-size': '100% 100%',
+            'height':'150px',
+            '-webkit-filter':'blur(0.5px)',
+            'filter':'blur(0.5px)'
         });
     };
 })

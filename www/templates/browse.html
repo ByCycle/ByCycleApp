@@ -2,12 +2,14 @@
   <ion-content>
       <ion-list class="bg">
 
-        <ion-item back-img="http://media.api.visitbritain.com/{{item.images[0]}}_cell_2x1_640.jpg"
+        <ion-item class="ionitem" back-img="http://media.api.visitbritain.com/{{item.images[0]}}_cell_2x1_640.jpg"
                   ng-repeat="item in destinations"
                   item="item"
                   href="#/item/{{item.id}}">
-          <div class="title">{{ item.title }}</div>
-
+          <div class="ionitemtitle">{{ item.title }}</div>
+          <div class="ionitemduration">
+            {{item.duration}}
+          </div>
 
           </ion-item>
 

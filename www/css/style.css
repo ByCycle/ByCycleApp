@@ -30,11 +30,11 @@ width: 75%;
 display: block;
 margin-left: 15%;
 }
-.bg>.list>.item-content{
+.ionitem{
   color: white !important;
 }
 
-.bg>.list>.item-content:before {
+.ionitem:before {
   content: "" !important;
   display: block !important;
   position: absolute !important;
@@ -52,10 +52,19 @@ margin-left: 15%;
 }
 
 
-.bg>.list>.item-content.activated:before {
+.ionitem.activated:before {
   opacity: 1 !important;
 }
-
+.ionitemtitle,.ionitemduration{
+  position: absolute;
+  bottom: 25px;
+  font-size: 20px;
+  font-weight:bold;
+}
+.ionitemduration{
+  text-align:right;
+  right: 20px;
+}
 .ion-google-place-container{
     position: fixed;
     top: 0;
