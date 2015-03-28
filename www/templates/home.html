@@ -17,10 +17,11 @@
       <li class="item item-divider">
         What are you interested in?
       </li>
-      <li class="item item-checkbox" ng-repeat="category in categories">
-        <label class="checkbox"><input type="checkbox"></label>
-        {{category}}
-      </li>
+      <label class="item item-radio" ng-repeat="category in categories">
+        <input type="radio" name="categories">
+        <div class="item-content">{{category}}</div>
+        <i class="radio-icon ion-checkmark"></i>
+      </label>
     </ul>
   </ion-content>
 </ion-view>
