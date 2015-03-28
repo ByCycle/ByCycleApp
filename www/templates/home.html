@@ -6,12 +6,17 @@
       <button class="button button-small button-changelocation" ng-click="goToSearch()">
   Change Location
 </button>
-    </div><br/>
-    <div class="activityTime">
-      How much time do you have? <select id="chooseTimer" ng-model="selectedDuration" ng-options="duration.displayName for duration in durations">
-      </select>
     </div>
     <ul class="list">
+      <li class="item item-divider">
+        How much time do you have?
+      </li>
+      <li class="item range range-positive">
+        <input type="range" name="duration" ng-model="duration" min="0" max="480" value="{{duration}}" ng-change="slideDuration(duration)">
+      </li>
+      <li class="item">
+        {{durationHours}} hours, {{durationMins}} mins
+      </li>
       <li class="item item-divider">
         What are you interested in?
       </li>
