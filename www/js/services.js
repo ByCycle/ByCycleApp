@@ -22,7 +22,7 @@ angular.module('starter.services', [])
       return( request.then( handleSuccess, handleError ) );
   }
   function destinations(lat,lng,max,interest){
-    var url = "https://bycycleapi.herokuapp.com/destinations?location="+ lat+"," + lng + "&maxDuration=";
+    var url = "http://bycycleapi.herokuapp.com/destinations?location="+ lat+"," + lng + "&maxDuration=";
     url += max*60 +"&interest=" + interest;
     var request = $http.get(url);
     return( request.then( handleSuccess, handleError ) );
