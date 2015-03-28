@@ -175,7 +175,11 @@ angular.module('starter.controllers', ['starter.services'])
   },function(error){
     console.log(error);
   });
-
+  angular.extend($scope.map, {
+    defaults: {
+      tileLayer: "http://{s}.tile.opencyclemap.org/cycle/{z}/{x}/{y}.png"
+    }
+  });
   $cordovaGeolocation
          .getCurrentPosition()
          .then(function (position) {
