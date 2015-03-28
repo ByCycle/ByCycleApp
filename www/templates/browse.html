@@ -8,7 +8,8 @@
                   href="#/app/locationdetail/{{item.id}}/{{item.title}}">
           <div class="ionitemtitle">{{ item.title }}</div>
           <div class="ionitemduration">
-            {{item.duration | formatSecs }}
+            <i class="radio-icon ion-arrow-resize"></i> {{item.distance | formatDist }}
+            <i class="radio-icon ion-clock"></i> {{item.duration | formatSecs }}
           </div>
 
           </ion-item>
