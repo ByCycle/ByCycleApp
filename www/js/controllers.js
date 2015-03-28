@@ -224,9 +224,8 @@ angular.module('starter.controllers', ['starter.services'])
 
 })
 .controller('DestinationCtrl',function($scope,$ionicHistory,$stateParams,LocationService){
-  LocationService.destinations().then(function(data){
+  LocationService.destinations(51.5085300,-0.1257400,7200,"royal%20britain").then(function(data){
     $scope.destinations = data.destinations;
-
     console.log(data.destinations);
   },function(error){
     console.log(error);
