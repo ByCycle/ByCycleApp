@@ -3,6 +3,8 @@ angular.module('starter.controllers', ['starter.services'])
 .controller('AppCtrl', function($scope, $ionicModal, $timeout) {
   // Form data for the login modal
   $scope.loginData = {};
+  $scope.location = {};
+  $scope.location.title = 'London';
 
   // Create the login modal that we will use later
   $ionicModal.fromTemplateUrl('templates/login.html', {
@@ -88,16 +90,19 @@ angular.module('starter.controllers', ['starter.services'])
       // error
     });*/
 })
-.controller('HomeCtrl',function($scope){
+.controller('HomeCtrl',function($scope,$location){
   $scope.$parent.navBarClass= "bar-clear";
   $scope.durations = [
   {value: '15min', displayName: '15min'},
   {value: '30min', displayName: '30min'},
   {value: '45min', displayName: '45min'}]
   $scope.selectedDuration = $scope.durations[1];
+  $scope.goToSearch = function(){
+   $location.path('/app/changeHomeLocation');
+  };
 })
-.controller('SearchCtrl',function($scope,$ionicHistory,LocationService){
-  $scope.goBack = function() {
+.controller('SearchCtrl',function($scope,$ionicHistory,LocationService,$state){
+  $scope.goBack = function goBack() {
     $ionicHistory.goBack();
   };
   $scope.suggest = {};
@@ -111,6 +116,39 @@ angular.module('starter.controllers', ['starter.services'])
         console.log(error);
       });
   }
+  $scope.setLocation = function(location){
+    $state.go('app.locationdetail', {id: location.id, title: location.title});
+    //$scope.$parent.location = location;
+  };
+})
+.controller('ChangeHomeLocationCtrl',function($scope,$ionicHistory,LocationService){
+  $scope.goBack = function() {
+    $ionicHistory.goBack();
+  };
+  $scope.suggest = {};
+  $scope.suggest.locations = [];
+  $scope.suggestLocation = function(){
+      $scope.suggest.locations = [];
+      if($scope.suggest.location.length < 2) return;
+      LocationService.suggest($scope.suggest.location).then(function(locations){
+        $scope.suggest.locations = locations;
+      },function(error){
+        console.log(error);
+      });
+  }
+  $scope.setLocation = function(location){
+    console.log(location);
+    $scope.$parent.location = location;
+    $ionicHistory.goBack();
+  };
+})
+.controller('LocationDetailCtrl',function($scope,$ionicHistory,$stateParams,LocationService){
+  $scope.title = $stateParams.title;
+  LocationService.detail($stateParams.id).then(function(locationDetail){
+    console.log(locationDetail);
+  },function(error){
+    console.log(error);
+  });
 })
 .directive('backImg', function(){
     return function(scope, element, attrs){
@@ -121,4 +159,20 @@ angular.module('starter.controllers', ['starter.services'])
             'background-size': '100% 100%'
         });
     };
-});;
+})
+.directive( 'goToPath', function ( $location ) {
+  return function ( scope, element, attrs ) {
+    var path;
+
+    attrs.$observe( 'goToPath', function (val) {
+      path = val;
+    });
+
+    element.bind( 'click', function () {
+      scope.$apply( function () {
+        console.log(path);
+        $location.path( path );
+      });
+    });
+  };
+});

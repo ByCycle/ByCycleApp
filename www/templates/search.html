@@ -10,7 +10,7 @@
   </button>
 </div>
 <ion-list>
-  <ion-item ng-repeat="location in suggest.locations" href="#/app/playlists/{{playlist.id}}">
+  <ion-item ng-repeat="location in suggest.locations" ng-click="setLocation(location)">
     {{location.title}}
   </ion-item>
 </ion-list>

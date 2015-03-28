@@ -2,7 +2,8 @@
   <ion-content style="top:0;">
     <div class="homeBGHeader">    </div><br/>
     <div class="locationDiv">
-      <span class="locationHeader">You are in <span class="locationName">London</span>, right?</span><button class="button button-small button-changelocation">
+      <span class="locationHeader">You are in <span class="locationName">{{location.title}}</span>, right?</span>
+      <button class="button button-small button-changelocation" ng-click="goToSearch()">
   Change Location
 </button>
     </div><br/>

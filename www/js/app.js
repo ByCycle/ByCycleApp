@@ -39,7 +39,15 @@ angular.module('starter', ['ionic', 'starter.controllers','ngCordova','starter.s
       }
     }
   })
-
+  .state('app.changeLocation', {
+    url: "/changeHomeLocation",
+    views: {
+      'menuContent': {
+        templateUrl: "templates/search.html",
+        controller:'ChangeHomeLocationCtrl'
+      }
+    }
+  })
   .state('app.browse', {
     url: "/browse",
     views: {
@@ -82,6 +90,14 @@ angular.module('starter', ['ionic', 'starter.controllers','ngCordova','starter.s
         'menuContent': {
           templateUrl: "templates/home.html",
           controller: 'HomeCtrl'
+        }
+      }
+    }).state('app.locationdetail', {
+      url: "/locationdetail/:id/:title",
+      views: {
+        'menuContent': {
+          templateUrl: "templates/locationdetail.html",
+          controller: 'LocationDetailCtrl'
         }
       }
     });

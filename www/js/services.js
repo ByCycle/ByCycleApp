@@ -1,10 +1,16 @@
 angular.module('starter.services', [])
 .service('LocationService',function($q,$http){
   return({
-    suggest : locationSuggestion
+    suggest : locationSuggestion,
+    detail: locationDetail
   });
   function locationSuggestion(str){
     var url = 'http://api.visitbritain.com/search?title='+str+'&target=gb';
+    var request = $http.get(url);
+      return( request.then( handleSuccess, handleError ) );
+  }
+  function locationDetail(id){
+    var url = 'http://api.visitbritain.com/items/'+id+'?t=CEkyP6gIddWG&lang=en';
     var request = $http.get(url);
       return( request.then( handleSuccess, handleError ) );
   }
