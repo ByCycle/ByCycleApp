@@ -40,11 +40,6 @@ angular.module('starter.controllers', ['starter.services'])
     $scope.modal.show();
   };
 
-  $scope.slideDuration = function(duration) {
-    $scope.durationMins = duration % 60;
-    $scope.durationHours = Math.floor(duration / 60);
-  }
-
   // Perform the login action when the user submits the login form
   $scope.doLogin = function() {
     console.log('Doing login', $scope.loginData);
@@ -130,6 +125,10 @@ angular.module('starter.controllers', ['starter.services'])
   $scope.duration = 120;
   $scope.durationMins = 0;
   $scope.durationHours = 2;
+  $scope.slideDuration = function(duration) {
+    $scope.durationMins = duration % 60;
+    $scope.durationHours = Math.floor(duration / 60);
+  }
   $scope.setCategory = function(category){
     $scope.category = category;
   }
