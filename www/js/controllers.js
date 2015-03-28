@@ -5,22 +5,6 @@ angular.module('starter.controllers', ['starter.services'])
   $scope.loginData = {};
   $scope.location = {};
   $scope.location.title = 'unknown';
-  $scope.categories = [
-    "Cities and Towns",
-    "Countryside",
-    "Culture",
-    "Family Friendly",
-    "Film and TV",
-    "Food and Drink",
-    "Landmarks",
-    "Music",
-    "Royal Britain",
-    "Shopping",
-    "Sport"
-  ];
-  $scope.duration = 120;
-  $scope.durationMins = 0;
-  $scope.durationHours = 2;
 
   $cordovaGeolocation
     .getCurrentPosition({timeout: 10000, enableHighAccuracy: false})
@@ -130,6 +114,22 @@ angular.module('starter.controllers', ['starter.services'])
 })
 .controller('HomeCtrl',function($scope,$location){
   $scope.$parent.navBarClass= "bar-clear";
+  $scope.categories = [
+    "Cities and Towns",
+    "Countryside",
+    "Culture",
+    "Family Friendly",
+    "Film and TV",
+    "Food and Drink",
+    "Landmarks",
+    "Music",
+    "Royal Britain",
+    "Shopping",
+    "Sport"
+  ];
+  $scope.duration = 120;
+  $scope.durationMins = 0;
+  $scope.durationHours = 2;
   $scope.goToSearch = function(){
    $location.path('/app/changeHomeLocation');
   };
