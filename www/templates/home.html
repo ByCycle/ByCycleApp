@@ -11,10 +11,14 @@
       How much time do you have? <select id="chooseTimer" ng-model="selectedDuration" ng-options="duration.displayName for duration in durations">
       </select>
     </div>
-    <ion-list>
-      <ion-item ng-repeat="playlist in playlists" href="#/app/playlists/{{playlist.id}}">
-        {{playlist.title}}
-      </ion-item>
-    </ion-list>
+    <ul class="list">
+      <li class="item item-divider">
+        What are you interested in?
+      </li>
+      <li class="item item-checkbox" ng-repeat="category in categories">
+        <label class="checkbox"><input type="checkbox"></label>
+        {{category}}
+      </li>
+    </ul>
   </ion-content>
 </ion-view>

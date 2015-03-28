@@ -5,6 +5,19 @@ angular.module('starter.controllers', ['starter.services'])
   $scope.loginData = {};
   $scope.location = {};
   $scope.location.title = 'unknown';
+  $scope.categories = [
+    "Cities and Towns",
+    "Countryside",
+    "Culture",
+    "Family Friendly",
+    "Film and TV",
+    "Food and Drink",
+    "Landmarks",
+    "Music",
+    "Royal Britain",
+    "Shopping",
+    "Sport"
+  ];
 
   $cordovaGeolocation
     .getCurrentPosition({timeout: 10000, enableHighAccuracy: false})
