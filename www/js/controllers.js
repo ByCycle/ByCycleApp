@@ -161,14 +161,21 @@ angular.module('starter.controllers', ['starter.services'])
 })
 .controller('LocationDetailCtrl',function($scope,$ionicHistory,$stateParams,LocationService,$cordovaGeolocation){
   $scope.title = $stateParams.title;
+  $scope.map = {center: {}, markers: {}};
+  $scope.map.paths = {p1: {
+                        color: 'red',
+                        weight: 8,latlngs: [{ lat: 51.504435, lng: -0.1291664}, {lat: 51.5042996, lng: -0.1291992},{ lat: 51.5046362, lng: -0.1293118},{ lat: 51.5051764, lng: -0.1294966},{ lat: 51.505305, lng: -0.1296819},{ lat: 51.5057982, lng: -0.1306751},{ lat: 51.5058666, lng: -0.1308105}, { lat: 51.5058666, lng: -0.1308105},{ lat: 51.5057746, lng: -0.1310182},{ lat: 51.5057235, lng: -0.1311537},{ lat: 51.5056813, lng: -0.1312616}, { lat: 51.5056813, lng: -0.1312616},{ lat: 51.505533, lng: -0.1310394},{ lat: 51.5054849, lng: -0.1311154},{ lat: 51.5054062, lng: -0.1311661},{ lat: 51.5052828, lng: -0.1311508},{ lat: 51.5051423, lng: -0.1311264},{ lat: 51.5049304, lng: -0.1310938},{ lat: 51.5046366, lng: -0.1310723},{ lat: 51.5041932, lng: -0.1310129},{ lat: 51.50477, lng: -0.1304}]
+                      ,message: "<h3>Route from London to Rome</h3><p>Distance: 1862km</p>",
+                    }};
+
   LocationService.detail($stateParams.id).then(function(locationDetail){
     $scope.detail = locationDetail;
-    
+
     console.log(locationDetail);
   },function(error){
     console.log(error);
   });
-  $scope.map = {center: {}, markers: {}};
+
   $cordovaGeolocation
          .getCurrentPosition()
          .then(function (position) {
