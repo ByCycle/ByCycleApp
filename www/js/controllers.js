@@ -10,7 +10,7 @@ angular.module('starter.controllers', ['starter.services'])
     .getCurrentPosition({timeout: 10000, enableHighAccuracy: false})
     .then(function (position) {
       $scope.location.lat  = position.coords.latitude
-      $scope.location.long = position.coords.longitude
+      $scope.location.lon = position.coords.longitude
       $http.get('http://nominatim.openstreetmap.org/reverse',
                 {params: {format: 'json',
                           lat: position.coords.latitude,
@@ -138,7 +138,7 @@ angular.module('starter.controllers', ['starter.services'])
   };
   $scope.goToDestination = function() {
     $state.go('app.browse', {lat: $scope.$parent.location.lat,
-                             lon: $scope.$parent.location.lat,
+                             lon: $scope.$parent.location.lon,
                              category: $scope.category,
                              duration: $scope.duration});
   }
