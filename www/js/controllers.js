@@ -223,6 +223,15 @@ angular.module('starter.controllers', ['starter.services'])
          });
 
 })
+.controller('DestinationCtrl',function($scope,$ionicHistory,$stateParams,LocationService){
+  LocationService.destinations().then(function(data){
+    $scope.destinations = data.destinations;
+
+    console.log(data.destinations);
+  },function(error){
+    console.log(error);
+  });
+})
 .directive('backImg', function(){
     return function(scope, element, attrs){
         var url = attrs.backImg;

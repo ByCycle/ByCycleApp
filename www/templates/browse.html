@@ -1,5 +1,17 @@
 <ion-view view-title="Browse">
   <ion-content>
-    <h1>Browse</h1>
-  </ion-content>
+      <ion-list class="bg">
+
+        <ion-item back-img="http://media.api.visitbritain.com/{{item.images[0]}}_cell_2x1_640.jpg"
+                  ng-repeat="item in destinations"
+                  item="item"
+                  href="#/item/{{item.id}}">
+          <div class="title">{{ item.title }}</div>
+
+
+          </ion-item>
+
+      </ion-list>
+
+    </ion-content>
 </ion-view>

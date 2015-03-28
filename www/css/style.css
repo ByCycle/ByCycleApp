@@ -37,11 +37,11 @@ width: 75%;
 display: block;
 margin-left: 15%;
 }
-.bg .item-content{
+.bg>.list>.item-content{
   color: white !important;
 }
 
-.bg .item-content:before {
+.bg>.list>.item-content:before {
   content: "" !important;
   display: block !important;
   position: absolute !important;
@@ -55,10 +55,11 @@ margin-left: 15%;
   -webkit-transition: opacity 0.25s !important;
   transition: opacity 0.25s !important;
   z-index: -1;
+  padding-top: 150px;
 }
 
 
-.bg .item-content.activated:before {
+.bg>.list>.item-content.activated:before {
   opacity: 1 !important;
 }
 
