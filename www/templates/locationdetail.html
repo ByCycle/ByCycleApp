@@ -6,6 +6,9 @@
             </ion-header-bar>
   <ion-content>
     <img class="detailImage" src="http://media.api.visitbritain.com/{{detail.images[0]}}_cell_2x1_640.jpg"/>
-    {{detail.description}}
+      <div>
+        {{detail.description}}
+      </div>
+      <leaflet defaults="map.defaults" paths="map.paths" center="map.center" markers="map.markers" height="400px"></leaflet>
   </ion-content>
 </ion-view>
