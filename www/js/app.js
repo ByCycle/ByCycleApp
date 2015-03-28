@@ -49,7 +49,7 @@ angular.module('starter', ['ionic', 'ngCordova', 'ion-google-place', 'leaflet-di
     }
   })
   .state('app.browse', {
-    url: "/browse",
+    url: "/browse/:lat/:lon/:category/:duration",
     views: {
       'menuContent': {
         templateUrl: "templates/browse.html",

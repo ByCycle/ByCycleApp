@@ -112,7 +112,7 @@ angular.module('starter.controllers', ['starter.services'])
       // error
     });*/
 })
-.controller('HomeCtrl',function($scope,$location){
+.controller('HomeCtrl',function($scope, $location, $state) {
   $scope.$parent.navBarClass= "bar-clear";
   $scope.categories = [
     "Cities and Towns",
@@ -133,6 +133,12 @@ angular.module('starter.controllers', ['starter.services'])
   $scope.goToSearch = function(){
    $location.path('/app/changeHomeLocation');
   };
+  $scope.goToDestination = function() {
+    $state.go('app.browse', {lat: $scope.$parent.location.lat,
+                             lon: $scope.$parent.location.lat,
+                             category: $scope.category,
+                             duration: $scope.duration});
+  }
 })
 .controller('SearchCtrl',function($scope,$ionicHistory,LocationService,$state){
   $scope.goBack = function goBack() {
@@ -219,7 +225,10 @@ angular.module('starter.controllers', ['starter.services'])
 
 })
 .controller('DestinationCtrl',function($scope,$ionicHistory,$stateParams,LocationService){
-  LocationService.destinations(51.5085300,-0.1257400,7200,"royal%20britain").then(function(data){
+  LocationService.destinations($stateParams.lat,
+                               $stateParams.lon,
+                               $stateParams.duration,
+                               $stateParams.category).then(function(data){
     $scope.destinations = data.destinations;
     console.log(data.destinations);
   },function(error){
