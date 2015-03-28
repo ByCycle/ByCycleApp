@@ -1,29 +1,27 @@
 <ion-view view-title="Home">
   <ion-content style="top:0;">
-    <div class="homeBGHeader">    </div><br/>
-    <div class="locationDiv">
-      <span class="locationHeader">You are in <span class="locationName">{{location.title}}</span>, right?</span>
-      <button class="button button-small button-changelocation" ng-click="goToSearch()">
-  Change Location
-</button>
-    </div>
+    <div class="homeBGHeader"></div>
     <ul class="list">
+      <li class="item">
+        You are in <span class="locationName">{{location.title}}</span>, right?
+        <button class="button button-small pull-right" ng-click="goToSearch()">
+          Change location
+        </button>
+      </li>
       <li class="item item-divider">
         How much time do you have?
       </li>
       <li class="item range range-positive">
-        <input type="range" name="duration" ng-model="duration" min="0" max="480" value="{{duration}}" ng-change="slideDuration(duration)">
-      </li>
-      <li class="item">
-        {{durationHours}} hours, {{durationMins}} mins
+        <input type="range" name="duration" ng-model="duration" min="0" max="480" value="{{duration}}" ng-change="slideDuration(duration)"> {{durationHours}} hours, {{durationMins}} mins
       </li>
       <li class="item item-divider">
         What are you interested in?
       </li>
-      <li class="item item-checkbox" ng-repeat="category in categories">
-        <label class="checkbox"><input type="checkbox"></label>
-        {{category}}
-      </li>
+      <label class="item item-radio" ng-repeat="category in categories">
+        <input type="radio" name="categories">
+        <div class="item-content">{{category}}</div>
+        <i class="radio-icon ion-checkmark"></i>
+      </label>
     </ul>
   </ion-content>
 </ion-view>

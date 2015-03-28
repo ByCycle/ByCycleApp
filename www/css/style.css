@@ -10,18 +10,11 @@
 .detailImage{
   -webkit-filter: blur(1px); filter: blur(1px);
 }
-.locationDiv{
-    text-align: center;
-}
-.locationHeader{
-  padding: 10px;
-  font-size: 16px;
-  display:inline-block;
-}
-.locationHeader .locationName{
+.locationName{
   color: #249285;
   font-weight: bold;
 }
+
 .button-changelocation{
   background-color: #249285;
   color: #ffffff;
